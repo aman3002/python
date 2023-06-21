@@ -1,0 +1,79 @@
+#counts
+Make an iterator that returns evenly spaced values starting with number start. 
+def count(start=0, step=1):
+    # count(10) --> 10 11 12 13 14 ...
+    # count(2.5, 0.5) --> 2.5 3.0 3.5 ...
+    n = start
+    while True:
+        yield n
+        n += step
+#ycle(iterable): This iterator prints all values in order from the passed container. It restarts printing from the beginning again when all elements are printed in a cyclic manner.
+import itertools
+ 
+l = ['Geeks', 'for', 'Geeks']
+ 
+# defining iterator
+iterators = itertools.cycle(l)
+ 
+# for in loop
+for i in range(6):
+ 
+    # Using next function
+    print(next(iterators), end=" ")
+#repeat(val, num): This iterator repeatedly prints the passed value an infinite number of times. If the optional keyword num is mentioned, then it repeatedly prints num number of times.
+
+import itertools
+ 
+# using repeat() to repeatedly print number
+print("Printing the numbers repeatedly : ")
+print(list(itertools.repeat(25, 4)))
+
+
+COMBINATORIC ITERATORS
+
+
+The recursive generators that are used to simplify combinatorial constructs such as permutations, combinations, and Cartesian products are called combinatoric iterators.
+In Python there are 4 combinatoric iterators: 
+#Product(): This tool computes the cartesian product of input iterables. To compute the product of an iterable with itself, we use the optional repeat keyword argument to specify the number of repetitions. The output of this function is tuples in sorted order.
+from itertools import product
+ 
+print("The cartesian product using repeat:")
+print(list(product([1, 2], repeat=2)))
+print()
+ 
+print("The cartesian product of the containers:")
+print(list(product(['geeks', 'for', 'geeks'], '2')))
+print()
+ 
+print("The cartesian product of the containers:")
+print(list(product('AB', [3, 4])))
+#Permutations(): Permutations() as the name speaks for itself is used to generate all possible permutations of an iterable. All elements are treated as unique based on their position and not their values. This function takes an iterable and group_size, if the value of group_size is not specified or is equal to None then the value of group_size becomes the length of the iterable.
+
+
+Combinations(): This iterator prints all the possible combinations(without replacement) of the container passed in arguments in the specified group size in sorted order.
+
+
+
+
+Terminating iterators are used to work on the short input sequences and produce the output based on the functionality of the method used.
+
+Different types of terminating iterators are: 
+
+accumulate(iter, func): This iterator takes two arguments, iterable target and the function which would be followed at each iteration of value in target. If no function is passed, addition takes place by default. If the input iterable is empty, the output iterable will also be empty
+
+chain(iter1, iter2..): This function is used to print all the values in iterable targets one after another mentioned in its arguments.
+
+compress(iter, selector): This iterator selectively picks the values to print from the passed container according to the boolean list value passed as other arguments. The arguments corresponding to boolean true are printed else all are skipped.
+
+dropwhile(func, seq): This iterator starts printing the characters only after the func. in argument returns false for the first time.
+
+filterfalse(func, seq): As the name suggests, this iterator prints only values that return false for the passed function.
+islice(iterable, start, stop, step): This iterator selectively prints the values mentioned in its iterable container passed as argument. This iterator takes 4 arguments, iterable container, starting pos., ending position and step.
+
+#starmap(func., tuple list): This iterator takes a function and tuple list as argument and returns the value according to the function from each tuple of the list.
+
+
+#takewhile(func, iterable): This iterator is the opposite of dropwhile(), it prints the values till the function returns false for 1st time.
+
+
+#tee(iterator, count):- This iterator splits the container into a number of iterators mentioned in the argument.
